@@ -12,6 +12,6 @@ def home():
 @app.route('/api/v1/resources/mdadm/md0/non_degraded_disks', methods=['GET'])
 def api_all():
     status = mdstat.parse()
-    return status['devices']['md0']['status']['non_degraded_disks']
+    return str(status['devices']['md0']['status']['non_degraded_disks'])
 
 app.run(host='0.0.0.0')
