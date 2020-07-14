@@ -9,9 +9,9 @@ app.config["DEBUG"] = True
 def home():
     return '''<h1>Homepage</h1>'''
 
-@app.route('/api/v1/resources/mdadm/md0', methods=['GET'])
+@app.route('/api/v1/resources/mdadm/md0/non_degraded_disks', methods=['GET'])
 def api_all():
     status = mdstat.parse()
-    return jsonify(status['devices']['md0']['status']['non_degraded_disks'])
+    return status['devices']['md0']['status']['non_degraded_disks']
 
 app.run(host='0.0.0.0')
